@@ -1,0 +1,9 @@
+#!/bin/sh
+
+browserify -t [ babelify --presets [ react ] ] \
+           -o bundle.js                        \
+           -r ./main.js:main                   \
+           -r react                            \
+           -r react-dom                        \
+           ./main.js                           \
+&& open index.html
