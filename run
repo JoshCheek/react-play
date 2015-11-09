@@ -2,8 +2,6 @@
 
 browserify -t [ babelify --presets [ react ] ] \
            -o bundle.js                        \
-           -r ./main.js:main                   \
-           -r react                            \
-           -r react-dom                        \
-           ./main.js                           \
+           -r ./renderers:renderers            \
+           ./renderers.js                      \
 && open index.html

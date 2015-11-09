@@ -1,5 +1,4 @@
 var React = require('react');
-var ReactDOM = require('react-dom');
 
 // Toplevel methods: https://facebook.github.io/react/docs/top-level-api.html
 var ClassForNotes = React.createClass({

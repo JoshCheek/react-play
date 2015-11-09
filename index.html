@@ -6,12 +6,7 @@
 <script src="file:///Users/josh/deleteme/react-play/bundle.js"></script>
 
 <script>
-  // React toplevel methods:
-  // https://facebook.github.io/react/docs/top-level-api.html
-  var main     = require("main");
-  var React    = require("react");
-  var ReactDOM = require("react-dom");
-  var example  = React.createElement(main.Example, null); // component, props, [children ...]
-  var $example = document.getElementById('example');
-  ReactDOM.render(example, $example);
+  var renderers = require("renderers");
+  var $example  = document.getElementById('example')
+  renderers.example($example);
 </script>
