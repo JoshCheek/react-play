@@ -1,12 +1,15 @@
 <!doctype html5>
 
-<div id="example">
+<div id="app">
 </div>
 
 <script src="bundle.js"></script>
 
 <script>
-  var renderers = require("renderers");
-  var $example  = document.getElementById('example')
-  renderers.example($example);
+  if(localStorage.appState === 'undefined')
+    localStorage.appState = {};
+  var state = localStorage.appState;
+  var $dom  = document.getElementById('app');
+  var App   = require("app");
+  new App($dom, state).run();
 </script>

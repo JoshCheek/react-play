@@ -40,7 +40,7 @@ var ClassForNotes = React.createClass({
 });
 
 
-var Example = React.createClass({
+var App = React.createClass({
   render: function() {
     // A list of tags / attributes you can use:
     // https://facebook.github.io/react/docs/tags-and-attributes.html
@@ -54,5 +54,5 @@ var Example = React.createClass({
 });
 
 module.exports = {
-  Example: Example,
+  App: App,
 };
