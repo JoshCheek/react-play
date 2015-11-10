@@ -1,7 +1,17 @@
 #!/bin/sh
 
+if test ! -e react-bundle.js
+then
+  browserify -t [ babelify --presets [ react ] ] \
+    -o react-bundle.js \
+    -r react \
+    -r react-dom
+fi
+
 browserify -t [ babelify --presets [ react ] ]           \
            -o bundle.js                                  \
            -r ./browser_integration:browser_integration  \
+           -x react                                      \
+           -x react-dom                                  \
            ./browser_integration.js                      \
 && open index.html
