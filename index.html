@@ -1,7 +1,7 @@
 <!doctype html5>
 
-<div id="app">
-</div>
+<div id="main"></div>
+<div id="game"></div>
 
 <script src="bundle.js"></script>
 
@@ -14,14 +14,22 @@
       appState = localStorage.appState;
   }
 
+  // some fake data
   appState.games.push({
     name: "game 1",
     correct: 3,
     incorrect: 2,
     duration: 61});
 
-  require("browser_integration")(
-    document.getElementById('app'),
+  var integration = require("browser_integration");
+
+  integration.main(
+    document.getElementById('main'),
     appState
+  );
+
+  integration.game(
+    document.getElementById('game'),
+    appState.games[0]
   );
 </script>
