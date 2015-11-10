@@ -21,12 +21,8 @@ var GamesView = React.createClass({
 
 var PlayGameView = React.createClass({
   render: function() {
-    var keyPress = function(e) {
-      console.log(e);
-      e.preventDefault();
-    };
-    // Not sure how to get focus without doing this tabIndex thing
-    return <div className="playGame" tabIndex="0" onKeyDown={keyPress} >
+    var keyPress = (e) => this.props.dispatcher('keyPress', e);
+    return <div className="playGame" autoFocus={true} tabIndex="-1" onKeyDown={keyPress} >
       <div className="stats">
         <div className="gameName">  {this.props.name}      </div>
         <div className="duration">  {this.props.duration}  </div>
