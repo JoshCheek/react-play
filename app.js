@@ -1,18 +1,20 @@
-var main     = require('./components')
-var React    = require("react");
-var ReactDOM = require("react-dom");
+var React     = require("react");
+var GamesView = require('./games_view')
 
-var App = function($dom, state) {
-  this.$dom  = $dom;
-  this.state = state;
+var App = function(reactRender, appState) {
+  this._reactRender = reactRender;
+  this._appState    = appState;
+  if(!this._appState.games) {
+    this._appState.games = [];
+  }
 }
 
 App.prototype = {
   run: function() {
-    // React toplevel methods:
-    // https://facebook.github.io/react/docs/top-level-api.html
-    var view = React.createElement(main.App, null); // component, props, [children ...]
-    ReactDOM.render(view, this.$dom);
+    var dispatcher = new function() { };
+
+    this._view = React.createElement(GamesView, {games: this._appState.games});
+    this._reactRender(this._view);
   }
 }
 

@@ -1,7 +1,7 @@
 #!/bin/sh
 
-browserify -t [ babelify --presets [ react ] ] \
-           -o bundle.js                        \
-           -r ./app.js:app                     \
-           ./app.js                            \
+browserify -t [ babelify --presets [ react ] ]           \
+           -o bundle.js                                  \
+           -r ./browser_integration:browser_integration  \
+           ./browser_integration.js                      \
 && open index.html

@@ -6,10 +6,22 @@
 <script src="bundle.js"></script>
 
 <script>
-  if(localStorage.appState === 'undefined')
-    localStorage.appState = {};
-  var state = localStorage.appState;
-  var $dom  = document.getElementById('app');
-  var App   = require("app");
-  new App($dom, state).run();
+  var appState = {games: []};
+  if(window.location.protocol !== 'file:') {
+    if(localStorage.appState === 'undefined')
+      localStorage.appState = appState;
+    else
+      appState = localStorage.appState;
+  }
+
+  appState.games.push({
+    name: "game 1",
+    correct: 3,
+    incorrect: 2,
+    duration: 61});
+
+  require("browser_integration")(
+    document.getElementById('app'),
+    appState
+  );
 </script>

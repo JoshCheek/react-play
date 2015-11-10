@@ -38,21 +38,3 @@ var ClassForNotes = React.createClass({
     // isMounted  (returns true if the component is rendered into the DOM)
   },
 });
-
-
-var App = React.createClass({
-  render: function() {
-    // A list of tags / attributes you can use:
-    // https://facebook.github.io/react/docs/tags-and-attributes.html
-    return(
-      <div>
-        <h1>Hello, world!</h1>
-        <h2>Hello, two!</h2>
-      </div>
-    )
-  }
-});
-
-module.exports = {
-  App: App,
-};
